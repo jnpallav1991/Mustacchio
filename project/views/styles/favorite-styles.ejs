@@ -1,0 +1,12 @@
+<h1><span>Favorite styles</span></h1>
+
+<ul class="gallery">
+	<% styles.forEach((style)=> { %>
+		<li>
+			<a href="/style/<%= style._id %>">
+				<img src="/images/<%= style.imageUrl %>" alt="" width="300px" height="300px">
+			</a>
+		</li>
+		<%})%>
+
+</ul>

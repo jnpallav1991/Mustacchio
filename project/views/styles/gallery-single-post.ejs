@@ -1,0 +1,20 @@
+<h1><span>style detail</span></h1>
+<div class="gallerySinglePost">
+	<img src="/images/<%= style.imageUrl %>" alt="" width="500px" height="500px">
+	<div class="article">
+		<h4>
+			<%= style.title.toUpperCase(); %>
+		</h4>
+		<p>
+			<%= style.description %>
+		</p>
+	</div>
+
+	<% if (loggedIn) { %>
+		<% if (isFavorite) { %>
+			<a> favorite style</a>
+		<% } else { %>
+				<a href="/style/<%- style._id %>/savefavorite"> Save as favorite</a>
+		<% }%>
+	<% }%>
+</div>

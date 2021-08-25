@@ -1,0 +1,46 @@
+
+<p>The Article search API, search articles by keywords. In the API we have to pass value for example - Election, Arts, Automobiles, Autos
+	, Blogs
+	, Books
+	, Business
+	, Education
+	, Fashion & Style, etc and get maximum 10 results at a time </p>
+<div class="articlesearch" >
+	<a href="https://developer.nytimes.com/docs/articlesearch-product/1/overview">API Link</a>
+</div>
+
+<h2>Articles</h2>
+<form action="/nytimes/search" method="POST">
+	<input type="text" placeholder="Search.." name="search" value = "<%= search %>">
+	<button class="button" type="submit">Search</button>
+</form>
+<% articles.forEach(article=> { %>
+	<h3>
+		<%= article.headline.main %>
+	</h3>
+	<td>
+		<img src="<%= `https://static01.nyt.com/${article.multimedia[0].url}` %>" alt="" width="400px" height="400px">
+	</td>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Abstract</th>
+				<td>
+					<%= article.abstract%>
+				</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>
+					<%= article.lead_paragraph%>
+				</td>
+			</tr>
+			<tr>
+				<th>WebUrl</th>
+				<td>
+					<%= article.web_url%>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<% }); %>

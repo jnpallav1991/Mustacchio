@@ -1,0 +1,38 @@
+<h2>Users Table</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Admin Privilege</th>
+		</tr>
+	</thead>
+
+	<form method="POST" action="/users/updateAdminPrivileges">
+			<tbody>
+				
+			 <% for (var i = 0; i < users.length; i++) {%> 
+					<tr>
+						<input type="hidden" id="userId" name="user[<%= i %>][_id]" value ="<%= users[i]._id %>">
+						<td>
+							<input type="text" name="user[<%= i %>][fullName]" id="inputFullName" value="<%= users[i].fullName %>" readonly>
+						</td>
+						<td>
+							<input type="text" name="user[<%= i %>][email]" id="inputEmail" value="<%= users[i].email %>" readonly>
+						</td>
+						<td>
+							<input type="checkbox" name="user[<%= i %>][isAdmin]" id="isAdmin"  <% if(users[i].isAdmin){ %>
+								checked
+							<% } else {%>
+								unchecked
+								<% } %>
+
+							>
+						</td>
+					</tr>
+				 <% } %> 
+			</tbody>
+		
+		<button class="button" type="submit">Update Admin Privileges</button>
+	</form>
+</table>
